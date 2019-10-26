@@ -25,6 +25,7 @@ import firebaseApp from "../Infra/firebase";
 import functionsApi from "../Infra/api-movies";
 import CardConteudoHome from "./CardConteudoHome";
 import SearchBar from "../Comum/SearchBar";
+
 export default class MainScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +35,7 @@ export default class MainScreen extends React.Component {
       pesquisa: ""
     };
     this.getTrending();
-    //this.realizaBusca('the batman')
+    //this.realizaBusca('toy')
   }
 
   LogOut = () => {

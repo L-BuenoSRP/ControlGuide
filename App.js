@@ -4,13 +4,9 @@ import { AppLoading, Asset, Font, Icon } from "expo";
 import AppContainer from "./navigation/AppNavigator";
 import firebaseApp from "./Infra/firebase";
 import { MenuProvider } from "react-native-popup-menu";
-//Encontrar melhor api de encontrar episodio
-//de series e ver se consigo inserir no app
+import { YellowBox } from "react-native";
 
-//https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=B71C1C&secondary.color=757575
-
-// import FAIcon from 'react-native-vector-icons/FontAwesome'
-
+console.disableYellowBox = true
 firebaseApp.InitApp();
 export default class App extends React.Component {
   state = {

@@ -27,6 +27,7 @@ import { Image, Dimensions, TouchableOpacity } from "react-native";
 import styles from "../styles";
 import functionsApi from "../Infra/api-movies";
 import firebaseApp from "../Infra/firebase";
+import Toast from "react-native-root-toast";
 export default class CardConteudoHome extends React.Component {
   constructor(props) {
     super(props);
@@ -126,6 +127,20 @@ export default class CardConteudoHome extends React.Component {
         {tipoConteudo == "serie" ? (
           <TouchableOpacity
             style={styles.contentTouch}
+            onLongPress={() => {
+              let toast = Toast.show(this.props.dataItem.name, {
+                duration: Toast.durations.LONG,
+                position: Toast.positions.BOTTOM,
+                shadow: true,
+                animation: true,
+                hideOnPress: true,
+                delay: 0
+              });
+
+              setTimeout(function() {
+                Toast.hide(toast);
+              }, 1500);
+            }}
             onPress={() => {
               console.log("teste");
             }}
@@ -174,7 +189,7 @@ export default class CardConteudoHome extends React.Component {
                   <MenuOptions
                     optionsContainerStyle={styles.MenuOptionsContainer}
                   >
-                    {this.props.dataItem.curr_time == 0 && (
+                    {this.props.dataItem.curr_time < 0 && (
                       <MenuOption
                         style={styles.MenuOptionBorderBottom}
                         // onSelect={() => {
@@ -187,7 +202,8 @@ export default class CardConteudoHome extends React.Component {
                         <Text style={{}}>Nenhuma Opção Disponivel</Text>
                       </MenuOption>
                     )}
-                    {this.props.dataItem.curr_time != 0 && (
+                    {(this.props.dataItem.curr_time >= 0 ||
+                      !this.props.dataItem.curr_time) && (
                       <MenuOption
                         style={styles.MenuOptionBorderBottom}
                         onSelect={() => {
@@ -220,6 +236,20 @@ export default class CardConteudoHome extends React.Component {
         ) : tipoConteudo == "filme" ? (
           <TouchableOpacity
             style={styles.contentTouch}
+            onLongPress={() => {
+              let toast = Toast.show(this.props.dataItem.title, {
+                duration: Toast.durations.LONG,
+                position: Toast.positions.BOTTOM,
+                shadow: true,
+                animation: true,
+                hideOnPress: true,
+                delay: 0
+              });
+
+              setTimeout(function() {
+                Toast.hide(toast);
+              }, 1500);
+            }}
             onPress={() => {
               console.log("teste");
             }}
@@ -263,14 +293,33 @@ export default class CardConteudoHome extends React.Component {
                   <MenuOptions
                     optionsContainerStyle={styles.MenuOptionsContainer}
                   >
-                    <MenuOption
-                      style={styles.MenuOptionBorderBottom}
-                      onSelect={() => {
-                        this.addConteudoFilme(this.props.dataItem.id, "visto");
-                      }}
-                    >
-                      <Text style={{}}>Já Visto</Text>
-                    </MenuOption>
+                    {this.props.dataItem.curr_time < 0 && (
+                      <MenuOption
+                        style={styles.MenuOptionBorderBottom}
+                        // onSelect={() => {
+                        //   this.addConteudoSerie(
+                        //     this.props.dataItem.id,
+                        //     "visto"
+                        //   );
+                        // }}
+                      >
+                        <Text style={{}}>Nenhuma Opção Disponivel</Text>
+                      </MenuOption>
+                    )}
+                    {(this.props.dataItem.curr_time >= 0 ||
+                      !this.props.dataItem.curr_time) && (
+                      <MenuOption
+                        style={styles.MenuOptionBorderBottom}
+                        onSelect={() => {
+                          this.addConteudoFilme(
+                            this.props.dataItem.id,
+                            "visto"
+                          );
+                        }}
+                      >
+                        <Text style={{}}>Já Visto</Text>
+                      </MenuOption>
+                    )}
                     {!this.props.dataItem.curr_time && (
                       <MenuOption
                         onSelect={() => {

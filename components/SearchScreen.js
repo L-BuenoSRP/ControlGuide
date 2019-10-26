@@ -27,7 +27,8 @@ export default class SearchScreen extends Component {
     );
 
     this.state = {
-      listaPesquisa: null
+      listaPesquisa: null,
+      textSearch: parametroBusca
     };
     this.getSearch(parametroBusca);
   }
@@ -35,7 +36,7 @@ export default class SearchScreen extends Component {
   getSearch = async parametro => {
     this.setState({ listaPesquisa: null });
     await functionsApi.searchContent(parametro, this);
-    //firebaseApp.buscaMeusConteudosSearch(this);
+    firebaseApp.buscaMeusConteudosSearch(this);
   };
 
   render() {
@@ -46,6 +47,7 @@ export default class SearchScreen extends Component {
         <Content style={styles.ContentW100Perc}>
           <SearchBar
             function={this.getSearch}
+            textSearch={this.state.textSearch}
           />
 
           {this.state.listaPesquisa != null && (

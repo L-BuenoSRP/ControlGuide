@@ -38,7 +38,7 @@ const functionsApi = {
         return res.data;
       });
   },
-  searchContent: function(conditionText, component) {
+  searchContent: async function(conditionText, component) {
     return axios
       .get(
         baseUrl +
@@ -49,10 +49,8 @@ const functionsApi = {
           "&adult=false"
       )
       .then(res => {
-        component.setState({ listaPesquisa: res.data.results });
-        //console.log(JSON.stringify(res.data.results));
+        component.setState({ listaPesquisaRest: res.data });
       });
-    //colocar rest nonome da variavel acima
   }
 };
 

@@ -7,7 +7,7 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pesquisa: "",
+      pesquisa: this.props.textSearch ? this.props.textSearch : "",
       focus: false
     };
   }

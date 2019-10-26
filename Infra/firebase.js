@@ -189,6 +189,93 @@ const firebaseApp = {
       component.setState({ listaTendencias: results });
     });
   },
+  buscaMeusConteudosSearch: async function(component){
+    const user = await AsyncStorage.getItem("idUsuarioLogado");
+
+    let itemsRef = await firebase.database().ref("MeusConteudos/" + user + "/");
+
+    await itemsRef.on("value", snapshot => {
+      var conteudos = [];
+
+      // criar mudança no app para que funcione
+      // com sincronização de dados entre async storage e firebase
+      // apos login ou em outro momento
+      snapshot.forEach(childSnapshot => {
+        conteudos.push(childSnapshot.val());
+        //firebase.database().ref("MeusConteudos/" + user + "/"+childSnapshot.key).remove();
+      });
+
+      results = component.state.listaPesquisaRest.results;
+      results = results.filter(el => {
+        if (conteudos.length > 0) {
+          var isShow = true;
+
+          conteudos.forEach(item => {
+            if (isShow) {
+              if (el.name) {
+                if (item.name && item.id) {
+                  //se é serie
+                  if (
+                    el.name.toLowerCase() == item.name.toLowerCase() &&
+                    el.id == item.id
+                  ) {
+                    //se é serie e esta no meus conteudos
+                    //verifica status e retorna se estiver nao visto (curr_time: 0 ou 00:00+)
+                    //isShow = item.curr_time.toString() != "-1";
+                    el.curr_time = item.curr_time;
+                  } else {
+                    //se é serie e não esta no meus conteudos
+                    isShow = true;
+                  }
+                } else {
+                  isShow = true;
+                }
+              } else if (el.title) {
+                if (item.title && item.id) {
+                  //se é filme
+                  if (
+                    el.title.toLowerCase() == item.title.toLowerCase() &&
+                    el.id == item.id
+                  ) {
+                    //se é filme e esta no meus conteudos
+                    //isShow = item.curr_time.toString() != "-1";
+                    el.curr_time = item.curr_time;
+                  } else {
+                    //se é filme e não esta no meus conteudos
+                    isShow = true;
+                  }
+                } else {
+                  isShow = true;
+                }
+              }
+            }
+          });
+
+          return isShow;
+        } else {
+          return true;
+        }
+      });
+      // saveJsonResult('antes', JSON.stringify(results));
+      results.sort((a, b) => {
+        if (
+          a.curr_time &&
+          !b.curr_time
+        ) {
+          return -1;
+        } else if (
+          !a.curr_time &&
+          b.curr_time
+        ) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      // saveJsonResult('depois', JSON.stringify(results));
+      component.setState({ listaPesquisa: results });
+    });
+  },
   addToConteudos: async function(data, status) {
     const user = await AsyncStorage.getItem("idUsuarioLogado");
     var existe = false;
