@@ -1,0 +1,168 @@
+{
+    "backdrop_path": "/900tHlUYUkp7Ol04XFSoAaEIXcT.jpg",
+    "created_by": [
+        {
+            "id": 35796,
+            "credit_id": "5ca7a5990e0a264c69f04ea8",
+            "name": "Craig Mazin",
+            "gender": 2,
+            "profile_path": "/77j3fjLKEIqTqeqGli4CWNtYxJ5.jpg"
+        }
+    ],
+    "episode_run_time": [
+        70
+    ],
+    "first_air_date": "2019-05-06",
+    "genres": [
+        {
+            "id": 18,
+            "name": "Drama"
+        }
+    ],
+    "homepage": "https://www.hbo.com/chernobyl",
+    "id": 87108,
+    "in_production": false,
+    "languages": [
+        "en"
+    ],
+    "last_air_date": "2019-06-03",
+    "last_episode_to_air": {
+        "air_date": "2019-06-03",
+        "episode_number": 5,
+        "id": 1747127,
+        "name": "Vichnaya Pamyat",
+        "overview": "Valery Legasov, Boris Shcherbina e Ulana Khomyuk arriscam suas vidas e reputação para expor a verdade sobre Chernobyl.",
+        "production_code": "",
+        "season_number": 1,
+        "show_id": 87108,
+        "still_path": "/mgXm2Y6SOFDHtD5thi2LmS7uQBj.jpg",
+        "vote_average": 9.429,
+        "vote_count": 7
+    },
+    "name": "Chernobyl",
+    "next_episode_to_air": null,
+    "networks": [
+        {
+            "name": "HBO",
+            "id": 49,
+            "logo_path": "/tuomPhY2UtuPTqqFnKMVHvSb724.png",
+            "origin_country": "US"
+        }
+    ],
+    "number_of_episodes": 5,
+    "number_of_seasons": 1,
+    "origin_country": [
+        "US"
+    ],
+    "original_language": "en",
+    "original_name": "Chernobyl",
+    "overview": "Homens e mulheres corajosos agem heroicamente para mitigar danos catastróficos quando a Usina Nuclear de Chernobyl sofre um acidente nuclear em 25 de abril de 1986.",
+    "popularity": 273.674,
+    "poster_path": "/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+    "production_companies": [
+        {
+            "id": 112447,
+            "logo_path": null,
+            "name": "Sister Pictures",
+            "origin_country": "GB"
+        },
+        {
+            "id": 115241,
+            "logo_path": null,
+            "name": "The Mighty Mint",
+            "origin_country": ""
+        }
+    ],
+    "seasons": [
+        {
+            "air_date": "2019-05-05",
+            "episode_count": 5,
+            "id": 119454,
+            "name": "1ª Temporada",
+            "overview": "",
+            "poster_path": "/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+            "season_number": 1
+        }
+    ],
+    "status": "Ended",
+    "type": "Miniseries",
+    "vote_average": 8.4,
+    "vote_count": 230,
+    "images": {
+        "backdrops": [
+            {
+                "aspect_ratio": 1.777777777777778,
+                "file_path": "/900tHlUYUkp7Ol04XFSoAaEIXcT.jpg",
+                "height": 1080,
+                "iso_639_1": null,
+                "vote_average": 5.384,
+                "vote_count": 2,
+                "width": 1920
+            },
+            {
+                "aspect_ratio": 1.777281429483089,
+                "file_path": "/knz6G4KnGoEcYklcM937FrlIlK1.jpg",
+                "height": 1567,
+                "iso_639_1": null,
+                "vote_average": 5.312,
+                "vote_count": 1,
+                "width": 2785
+            },
+            {
+                "aspect_ratio": 1.777777777777778,
+                "file_path": "/wo8vuhTUqtGEkgrhqa6DMDbok6y.jpg",
+                "height": 900,
+                "iso_639_1": null,
+                "vote_average": 0,
+                "vote_count": 0,
+                "width": 1600
+            },
+            {
+                "aspect_ratio": 1.777777777777778,
+                "file_path": "/cDpR6URVghK5LC7G7NgPkCP8x6E.jpg",
+                "height": 1080,
+                "iso_639_1": null,
+                "vote_average": 0,
+                "vote_count": 0,
+                "width": 1920
+            },
+            {
+                "aspect_ratio": 1.777777777777778,
+                "file_path": "/tBKIEta6JraGIDRce7r1CCAnrsw.jpg",
+                "height": 1080,
+                "iso_639_1": null,
+                "vote_average": 0,
+                "vote_count": 0,
+                "width": 1920
+            },
+            {
+                "aspect_ratio": 1.778280542986425,
+                "file_path": "/10rmuw6lKZ8D25kWdn1Tl33kp3a.jpg",
+                "height": 1768,
+                "iso_639_1": null,
+                "vote_average": 0,
+                "vote_count": 0,
+                "width": 3144
+            },
+            {
+                "aspect_ratio": 1.778280542986425,
+                "file_path": "/5BvHuWktcqcecQxmyecqyBFTdBN.jpg",
+                "height": 1768,
+                "iso_639_1": null,
+                "vote_average": 0,
+                "vote_count": 0,
+                "width": 3144
+            },
+            {
+                "aspect_ratio": 1.777777777777778,
+                "file_path": "/5DJonZy0OMxKYUUAVZJddkDL6WM.jpg",
+                "height": 1080,
+                "iso_639_1": null,
+                "vote_average": 0,
+                "vote_count": 0,
+                "width": 1920
+            }
+        ],
+        "posters": []
+    }
+}
