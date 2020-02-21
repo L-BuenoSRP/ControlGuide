@@ -61,7 +61,6 @@ export default class MainScreen extends React.Component {
   };
 
   render() {
-    // console.log(this.state.listaTendencias);
     var openDrawer = this.props.navigation.openDrawer;
     return (
       <Container style={styles.container}>
