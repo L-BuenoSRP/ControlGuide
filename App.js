@@ -1,26 +1,31 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
-import { AppLoading, Asset, Font, Icon } from "expo";
 import AppContainer from "./navigation/AppNavigator";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
+import * as Icon from "@expo/vector-icons";
+import { Asset } from "expo-asset";
 import firebaseApp from "./Infra/firebase";
 import { MenuProvider } from "react-native-popup-menu";
-import { YellowBox } from "react-native";
 
-console.disableYellowBox = true
-firebaseApp.InitApp();
 export default class App extends React.Component {
+  constructor() {
+    super();
+
+    if (!firebaseApp.isAppInitialize()) {
+      firebaseApp.InitApp();
+    }
+  }
   state = {
     isLoadingComplete: false,
     loading: true
   };
 
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     await Font.loadAsync({
       Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf")
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
     });
-
     this.setState({
       loading: false
     });

@@ -101,6 +101,21 @@ export default class CardConteudoHome extends React.Component {
       return require("../assets/not-found.png");
     }
   };
+
+  addContentType = dataItem => {
+    if (dataItem) {
+      if (dataItem.title) {
+        return "Filme";
+      } else if (dataItem.name) {
+        return "Serie";
+      }
+      else{
+        return "Outros";   
+      }
+    } else {
+      return "Outros";
+    }
+  };
   render() {
     var tipoConteudo = "";
     if (
@@ -155,6 +170,9 @@ export default class CardConteudoHome extends React.Component {
                     {this.getStarAverage(this.props.dataItem.vote_average)}
                     <Text style={styles.contentAverageText} note>
                       {this.props.dataItem.vote_average}
+                    </Text>
+                    <Text style={styles.contentContentType}>
+                      {this.addContentType(this.props.dataItem)}
                     </Text>
                   </View>
                 </Body>
@@ -264,6 +282,9 @@ export default class CardConteudoHome extends React.Component {
                     {this.getStarAverage(this.props.dataItem.vote_average)}
                     <Text style={styles.contentAverageText} note>
                       {this.props.dataItem.vote_average}
+                    </Text>
+                    <Text style={styles.contentContentType}>
+                      {this.addContentType(this.props.dataItem)}
                     </Text>
                   </View>
                 </Body>

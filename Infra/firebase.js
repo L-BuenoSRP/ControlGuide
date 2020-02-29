@@ -16,6 +16,13 @@ const firebaseApp = {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   },
+  isAppInitialize: function() {
+    if (firebase.app.length) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   AuthState: function(component) {
     firebase.auth().onAuthStateChanged(user => {
       if (user != null && user != undefined) {
@@ -189,7 +196,7 @@ const firebaseApp = {
       component.setState({ listaTendencias: results });
     });
   },
-  buscaMeusConteudosSearch: async function(component){
+  buscaMeusConteudosSearch: async function(component) {
     const user = await AsyncStorage.getItem("idUsuarioLogado");
 
     let itemsRef = await firebase.database().ref("MeusConteudos/" + user + "/");
@@ -258,15 +265,9 @@ const firebaseApp = {
       });
       // saveJsonResult('antes', JSON.stringify(results));
       results.sort((a, b) => {
-        if (
-          a.curr_time &&
-          !b.curr_time
-        ) {
+        if (a.curr_time && !b.curr_time) {
           return -1;
-        } else if (
-          !a.curr_time &&
-          b.curr_time
-        ) {
+        } else if (!a.curr_time && b.curr_time) {
           return 1;
         } else {
           return 0;
@@ -276,6 +277,7 @@ const firebaseApp = {
       component.setState({ listaPesquisa: results });
     });
   },
+  buscaMeusConteudosList: async function(component) {},
   addToConteudos: async function(data, status) {
     const user = await AsyncStorage.getItem("idUsuarioLogado");
     var existe = false;
