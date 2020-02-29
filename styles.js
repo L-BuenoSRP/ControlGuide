@@ -1,5 +1,5 @@
 import { StyleSheet, StatusBar, Platform, Dimensions } from "react-native";
-import { Constants } from "expo";
+import Constants from "expo-constants";
 const width = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   container: {
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
   },
   collapseContainer: {
     borderColor: "gray",
-    borderWidth: 1,
+    borderWidth: 2,
     width: "99%",
     alignSelf: "center",
     marginVertical: 5
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     padding: 5
   },
-  minhaListaContent: { width: "100%", paddingTop: 10 },
+  minhaListaContent: { width: "100%", paddingTop: 10, paddingHorizontal: "2%" },
   collapseHeaderView: {
     flexDirection: "row",
     alignItems: "center",
@@ -261,7 +261,8 @@ const styles = StyleSheet.create({
   iconCollapse: { marginRight: 10, fontSize: 18 },
   collapseBody: { padding: 5, backgroundColor: "#e5e5e5" },
   styleContentContainerListMain: {
-    flexDirection: "column" /*, flexWrap: 'wrap'*/
+    flexDirection: "column" /*, flexWrap: 'wrap'*/,
+    marginTop: 9
   },
   styleListMain: {
     alignSelf: "center",
@@ -272,14 +273,13 @@ const styles = StyleSheet.create({
   styleListSearch: {
     alignSelf: "center",
     paddingLeft: 4,
-    paddingRight: 4,
+    paddingRight: 4
   },
   bottomViewMinhaLista: { height: 10 },
   listItemCard: {
     width: width / 2 - 15,
-    height: 287,
     marginLeft: 6,
-    marginTop: 10,
+    marginTop: -18,
     paddingRight: 0,
     alignItems: "center",
     justifyContent: "center",
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
   },
   contentTouch: { width: "90%" },
   contentCard: { width: "100%" },
-  contentCardItemTop: { paddingBottom: 2 },
+  contentCardItemTop: { paddingBottom: 2, marginTop: 5 },
   contentItemTopBody: {
     height: 45,
     alignItems: "flex-start",
@@ -297,9 +297,10 @@ const styles = StyleSheet.create({
   contentAverageContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  contentAverageText: { marginLeft: 5 },
+  contentAverageText: { marginLeft: 5, width:"27%" },
+  contentContentType: { textAlign: "right", width:"55%" },
   contentCardItemMiddle: { justifyContent: "center", paddingBottom: 0 },
   contentImage: { height: 180, width: "90%", padding: 0 },
   contentCardItemBottom: {
@@ -317,7 +318,7 @@ const styles = StyleSheet.create({
   },
   contentLancamentoButton: {
     marginLeft: 5,
-    width: 25,
+    width: 30,
     alignItems: "center",
     justifyContent: "center"
   },

@@ -24,6 +24,9 @@ const functionsApi = {
         component.setState({ listaTendenciasRest: res.data });
       });
   },
+  getAtualizacoesConteudos: function() {
+    
+  },
   buscaSerie: function(id) {
     return axios
       .get(baseUrl + "tv/" + id + "?" + this.getConfiguracoes())
