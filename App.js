@@ -8,13 +8,11 @@ import { Asset } from "expo-asset";
 import firebaseApp from "./Infra/firebase";
 import { MenuProvider } from "react-native-popup-menu";
 
+firebaseApp.InitApp();
+
 export default class App extends React.Component {
   constructor() {
     super();
-
-    if (!firebaseApp.isAppInitialize()) {
-      firebaseApp.InitApp();
-    }
   }
   state = {
     isLoadingComplete: false,

@@ -35,11 +35,11 @@ export default class MinhaLisa extends Component {
   }
 
   getMyList = async () => {
-    if (this.state.myListContinue == null
-        || this.state.myListDone == null 
-        || this.state.myListWish == null ) {
+    if (this.state.myListContinue.length == 0
+        || this.state.myListDone.length == 0 
+        || this.state.myListWish.length == 0 ) {
       await firebaseApp.buscaMeusConteudosList(this);
-      functionsApi.getAtualizacoesConteudos(this);
+      //functionsApi.getAtualizacoesConteudos(this);
     }
   };
 

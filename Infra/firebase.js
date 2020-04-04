@@ -14,13 +14,8 @@ const firebaseApp = {
       appId: "1:1000025285712:web:23d8c111e827901e"
     };
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  },
-  isAppInitialize: function() {
-    if (firebase.app.length) {
-      return true;
-    } else {
-      return false;
+    if(!firebase.apps.length){
+      firebase.initializeApp(firebaseConfig);
     }
   },
   AuthState: function(component) {
@@ -277,7 +272,44 @@ const firebaseApp = {
       component.setState({ listaPesquisa: results });
     });
   },
-  buscaMeusConteudosList: async function(component) {},
+  buscaMeusConteudosList: async function(component) {
+    const user = await AsyncStorage.getItem("idUsuarioLogado");
+
+    let itemsRef = await firebase.database().ref("MeusConteudos/" + user + "/");
+
+    await itemsRef.on("value", snapshot => {
+      var conteudos = [];
+
+      snapshot.forEach(childSnapshot => {
+        conteudos.push(childSnapshot.val());
+      });
+
+      var myListContinue = [];
+      var myListDone = [];
+      var myListWish = [];
+
+      // conteudo.curr_sesion = 1;
+      // conteudo.cur_episode = 1;
+      // conteudo.curr_time = "0";
+      if (conteudos.length > 0) {
+        conteudos.forEach(item => {
+          if (item.name && item.id) {
+          } else if (item.title && item.id) {
+            if ((item.curr_time = "-1")) {
+              myListDone.push(item);
+            }
+          }
+        });
+      }
+console.log(myListDone)
+      // saveJsonResult('depois', JSON.stringify(results));
+      component.setState({
+        myListContinue: myListContinue,
+        myListDone: myListDone,
+        myListWish: myListWish
+      });
+    });
+  },
   addToConteudos: async function(data, status) {
     const user = await AsyncStorage.getItem("idUsuarioLogado");
     var existe = false;

@@ -24,7 +24,7 @@ const functionsApi = {
         component.setState({ listaTendenciasRest: res.data });
       });
   },
-  getAtualizacoesConteudos: function() {
+  getAtualizacoesConteudos:  function() {
     
   },
   buscaSerie: function(id) {
