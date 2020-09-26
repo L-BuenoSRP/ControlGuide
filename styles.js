@@ -2,11 +2,22 @@ import { StyleSheet, StatusBar, Platform, Dimensions } from "react-native";
 import Constants from "expo-constants";
 const width = Dimensions.get("window").width;
 const styles = StyleSheet.create({
-  container: {
+  containerLogin: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f0f2fc",
+    width: "100%",
+    ...Platform.select({
+      android: {
+        marginTop: Constants.statusBarHeight
+      }
+    })
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#f0f2fc",
+    width: "100%",
     ...Platform.select({
       android: {
         marginTop: Constants.statusBarHeight
@@ -85,13 +96,12 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#b71c1c",
     alignSelf: "flex-start",
-    marginLeft: -5,
-    marginRight: -5,
-    opacity: 0.9
+    opacity: 0.9,
+    width: "100%",
   },
   headerBgTitleContainer: {
     backgroundColor: "#7f0000",
-    width: "85%",
+    width: "100%",
     height: "100%",
     flexDirection: "row",
     flex: 1,
@@ -251,7 +261,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     padding: 5
   },
-  minhaListaContent: { width: "100%", paddingTop: 10, paddingHorizontal: "2%" },
+  minhaListaContent: { paddingTop: 10, paddingHorizontal: "2%" },
   collapseHeaderView: {
     flexDirection: "row",
     alignItems: "center",
@@ -333,8 +343,9 @@ const styles = StyleSheet.create({
     borderBottomColor: "#d6d6d6",
     borderBottomWidth: 1
   },
-  ContentW100Perc: { width: "100%" },
-  HeaderSearchBar: { width: "100%", backgroundColor: "#b71c1c", marginTop: 7 },
+  ContentW100Perc: { width: "100%", marginTop: 5 },
+  HeaderSearchBar: { width: "100%",
+   backgroundColor: "#b71c1c", marginTop: 7 },
   HearderSearchItem: { flex: 4 },
   HeaderSearchButton: { flex: 1, marginLeft: 10, height: "70%", height: "70%" }
 });

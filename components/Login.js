@@ -61,7 +61,7 @@ export default class Login extends React.Component {
     };
     render() {
         return (
-            <Container style={styles.container}>
+            <Container style={styles.containerLogin}>
                 <StatusBar translucent />
                 <Image
                     source={this.state.image}
