@@ -295,8 +295,14 @@ const firebaseApp = {
         conteudos.forEach(item => {
           if (item.name && item.id) {
           } else if (item.title && item.id) {
-            if ((item.curr_time = "-1")) {
+            if ((item.curr_time == "-1")) {
               myListDone.push(item);
+            }
+            else if((item.curr_time == "0")){
+              myListWish.push(item);
+            }
+            else if((item.curr_time > "0")){
+              myListContinue.push(item);
             }
           }
         });

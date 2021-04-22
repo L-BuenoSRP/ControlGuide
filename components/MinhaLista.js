@@ -8,7 +8,7 @@ import {
   Card,
   CardItem,
   View,
-  List
+  List,
 } from "native-base";
 import styles from "../styles";
 import MyHeader from "../Comum/MyHeader";
@@ -17,7 +17,7 @@ import {
   Collapse,
   CollapseHeader,
   CollapseBody,
-  AccordionList
+  AccordionList,
 } from "accordion-collapse-react-native";
 import CardConteudoHome from "./CardConteudoHome";
 import functionsApi from "../Infra/api-movies";
@@ -28,16 +28,18 @@ export default class MinhaLisa extends Component {
     this.state = {
       myListContinue: [],
       myListDone: [],
-      myListWish: []
+      myListWish: [],
     };
 
     this.getMyList();
   }
 
   getMyList = async () => {
-    if (this.state.myListContinue.length == 0
-        || this.state.myListDone.length == 0 
-        || this.state.myListWish.length == 0 ) {
+    if (
+      this.state.myListContinue.length == 0 ||
+      this.state.myListDone.length == 0 ||
+      this.state.myListWish.length == 0
+    ) {
       await firebaseApp.buscaMeusConteudosList(this);
       //functionsApi.getAtualizacoesConteudos(this);
     }
@@ -63,15 +65,19 @@ export default class MinhaLisa extends Component {
               </View>
             </CollapseHeader>
             <CollapseBody style={styles.collapseBody}>
-              <Text>Finja que aqui existem muitas series</Text>
-              <Button
-                style={{ alignSelf: "center" }}
-                onPress={() => {
-                  this.props.navigation.navigate("Screen");
-                }}
-              >
-                <Text>Botao</Text>
-              </Button>
+              {this.state.myListContinue && (
+                <List
+                  dataArray={this.state.myListContinue}
+                  horizontal={true}
+                  renderRow={(item) => (
+                    <CardConteudoHome dataItem={item} componentOrigin={this} />
+                  )}
+                ></List>
+              )}
+              {(!this.state.myListContinue ||
+                this.state.myListContinue.length == 0) && (
+                <Text>Nada Adicionado</Text>
+              )}
             </CollapseBody>
           </Collapse>
 
@@ -89,13 +95,15 @@ export default class MinhaLisa extends Component {
                 <List
                   dataArray={this.state.myListDone}
                   horizontal={true}
-                  renderRow={item => (
+                  renderRow={(item) => (
                     <CardConteudoHome dataItem={item} componentOrigin={this} />
                   )}
                 ></List>
               )}
               {(!this.state.myListDone ||
-                this.state.myListDone.length == 0) && <Text>Nada</Text>}
+                this.state.myListDone.length == 0) && (
+                <Text>Nada Adicionado</Text>
+              )}
             </CollapseBody>
           </Collapse>
 
@@ -108,7 +116,19 @@ export default class MinhaLisa extends Component {
               </View>
             </CollapseHeader>
             <CollapseBody style={styles.collapseBody}>
-              <Text>Finja que aqui existem muitas series</Text>
+              {this.state.myListWish && (
+                <List
+                  dataArray={this.state.myListWish}
+                  horizontal={true}
+                  renderRow={(item) => (
+                    <CardConteudoHome dataItem={item} componentOrigin={this} />
+                  )}
+                ></List>
+              )}
+              {(!this.state.myListWish ||
+                this.state.myListWish.length == 0) && (
+                <Text>Nada Adicionado</Text>
+              )}
             </CollapseBody>
           </Collapse>
 
