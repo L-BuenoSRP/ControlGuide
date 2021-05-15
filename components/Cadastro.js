@@ -58,11 +58,9 @@ export default class Cadastro extends React.Component {
       if (this.canBeSubmitted(user)) {
         if (user.senha != user.confSenha) {
           const errors = this.validade(user);
-          console.log(this.state.error);
           errors.senha = true;
           errors.confSenha = true;
           this.setState({ error: errors });
-          console.log(this.state.error);
           Alert.alert("Atenção", "As senhas devem ser iguais.");
         } else {
           // FUNCAO

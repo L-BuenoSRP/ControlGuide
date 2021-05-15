@@ -103,7 +103,7 @@ const AppStack = createDrawerNavigator(
     }
   },
   {
-    initialRouteName: "MinhaLista",
+    initialRouteName: "Main",
     // drawerWidth: Dimensions.get('window').width,
     drawerPosition: "left",
     headerMode: "float",

@@ -81,6 +81,10 @@ export default class CardConteudoHome extends React.Component {
   };
 
   formatTitle = value => {
+    let splited = value.split(" ");
+    if(splited.length == 1){
+      console.log(splited)
+    }
     if (value.length >= 23) {
       return (
         value.substr(0, 20) +

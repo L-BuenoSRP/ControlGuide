@@ -14,6 +14,7 @@ export default class SearchBar extends Component {
 
   executaFunction = conditionText => {
     var func = this.props.function;
+    this.setState({ pesquisa: "" })
     func(conditionText);
   };
 

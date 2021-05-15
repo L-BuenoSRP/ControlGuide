@@ -1,6 +1,5 @@
 const functions = {
   translate: function(string) {
-      console.log("chegou no translate");
     if (string == "The email address is badly formatted.") {
       return "Formato do endereço de e-mail inválido.";
     } else if (

@@ -70,7 +70,6 @@ const firebaseApp = {
   LogOut: function(component) {
     firebase.auth().signOut();
     AsyncStorage.removeItem("usuarioLogado").then(valor => {
-      console.log(valor);
     });
     component.props.navigation.navigate("Auth");
   },
@@ -90,7 +89,6 @@ const firebaseApp = {
       })
       .catch(error => {
         component.setState({ loading: false });
-        console.log(error);
         Alert.alert("Atenção", functions.translate(error.message));
       });
   },
@@ -98,16 +96,16 @@ const firebaseApp = {
     const user = await AsyncStorage.getItem("idUsuarioLogado");
 
     let itemsRef = await firebase.database().ref("MeusConteudos/" + user + "/");
-
+    
     await itemsRef.on("value", snapshot => {
       var conteudos = [];
-
+      
       // criar mudança no app para que funcione
       // com sincronização de dados entre async storage e firebase
       // apos login ou em outro momento
       snapshot.forEach(childSnapshot => {
         conteudos.push(childSnapshot.val());
-        //firebase.database().ref("MeusConteudos/" + user + "/"+childSnapshot.key).remove();
+        // firebase.database().ref("MeusConteudos/" + user + "/"+childSnapshot.key).remove();
       });
 
       results = component.state.listaTendenciasRest.results;
@@ -294,6 +292,15 @@ const firebaseApp = {
       if (conteudos.length > 0) {
         conteudos.forEach(item => {
           if (item.name && item.id) {
+            if ((item.curr_time == "-1")) {
+              myListDone.push(item);
+            }
+            else if((item.curr_time == "0")){
+              myListWish.push(item);
+            }
+            else if((item.curr_time > "0")){
+              myListContinue.push(item);
+            }
           } else if (item.title && item.id) {
             if ((item.curr_time == "-1")) {
               myListDone.push(item);
@@ -307,8 +314,7 @@ const firebaseApp = {
           }
         });
       }
-console.log(myListDone)
-      // saveJsonResult('depois', JSON.stringify(results));
+      // saveJsonResult('depois', JSON.stringify(myListDone));
       component.setState({
         myListContinue: myListContinue,
         myListDone: myListDone,
