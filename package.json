@@ -30,8 +30,9 @@
     "axios": "^0.18.1"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.0.0",
-    "@babel/core": "^7.0.0"
+    "@babel/core": "^7.0.0",
+    "@expo/webpack-config": "^0.12.68",
+    "babel-preset-expo": "~8.0.0"
   },
   "private": true
 }
