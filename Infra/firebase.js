@@ -5,13 +5,13 @@ import functions from "../functions";
 const firebaseApp = {
   InitApp: function() {
     var firebaseConfig = {
-      apiKey: "AIzaSyAv9H6mXe7yWerozqj2EHOh6Ns_s452TIo",
-      authDomain: "control-app-series.firebaseapp.com",
-      databaseURL: "https://control-app-series.firebaseio.com",
-      projectId: "control-app-series",
-      storageBucket: "control-app-series.appspot.com",
-      messagingSenderId: "1000025285712",
-      appId: "1:1000025285712:web:23d8c111e827901e"
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
