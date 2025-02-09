@@ -20,7 +20,7 @@ Series:
 
 Parametros configuração:
 {
-	api_key=5e6e857002adbbd14ae96042862c8aad
+	api_key=
 	language=pt-BR
 	append_to_response=images&include_image_language=pt-BR,null
 }
