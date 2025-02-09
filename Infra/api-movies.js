@@ -4,7 +4,7 @@ const baseUrl = "https://api.themoviedb.org/3/";
 
 const baseUrlImage = "https://image.tmdb.org/t/p/";
 
-const apiKey = "5e6e857002adbbd14ae96042862c8aad";
+const apiKey = "";
 const tamanhosImagem = ["w500", "original"];
 const functionsApi = {
   getConfiguracoes: function() {
